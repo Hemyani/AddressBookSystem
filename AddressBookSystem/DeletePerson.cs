@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    class EditContact
+    class DeletePerson
     {
         Dictionary<string, Contact> dictionary = new Dictionary<string, Contact>();
         public static List<Contact> contacts = new List<Contact>();
@@ -88,8 +88,21 @@ namespace AddressBookSystem
                 }
             }
         }
-
-        //created for a new contact user
+        // created a method for delete the contact
+        public static void DeleteContact()
+        {
+            Console.Write("enter the name to delete: ");
+            string personName = Console.ReadLine();
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                if (contacts[i].Firstname == personName)
+                {
+                    Console.WriteLine("Record Of {0} Deleted Successfully", contacts[i].Firstname);
+                    contacts.RemoveAt(i);
+                }
+            }
+        }
+        // created for a new contact user
         public Dictionary<string, Contact> NewUser()
         {
             Console.WriteLine("Enter the Bookname: ");
@@ -124,7 +137,6 @@ namespace AddressBookSystem
 
             return null;
         }
-
         // craeted an another method for display the data
         public void Display()
         {

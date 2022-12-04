@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    class NewContact
+    class EditContact
     {
         Dictionary<string, Contact> dictionary = new Dictionary<string, Contact>();
         public static List<Contact> contacts = new List<Contact>();
@@ -65,7 +65,31 @@ namespace AddressBookSystem
 
             }
         }
-        // created for a new user
+        // created a method for edit the person details
+        public static void EditPerson()
+        {
+            Console.Write("enter the name to edit: ");
+            string editname = Console.ReadLine();
+            foreach (var data in contacts)
+            {
+                if (contacts.Contains(data))
+                {
+                    if (data.Firstname == editname)
+                    {
+                        Console.Write("enter the Phone number: ");
+                        data.Phonenumber = Convert.ToInt32(Console.ReadLine());
+
+                        Console.Write("Enter the zipcode: ");
+                        data.Zipcode = Convert.ToInt32(Console.ReadLine());
+
+                        Console.Write("Enter the city: ");
+                        data.City = Console.ReadLine();
+                    }
+                }
+            }
+        }
+
+        //created for a new contact user
         public Dictionary<string, Contact> NewUser()
         {
             Console.WriteLine("Enter the Bookname: ");
@@ -92,7 +116,7 @@ namespace AddressBookSystem
             contact.State = (Console.ReadLine());
 
             Console.Write("Enter the email: ");
-            contact.Zipcode = int.Parse(Console.ReadLine());
+            contact.Email = (Console.ReadLine());
 
 
             contacts.Add(contact);

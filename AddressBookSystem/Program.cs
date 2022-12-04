@@ -12,7 +12,7 @@ namespace AddressBookSystem
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Address Book ");
-            Create person = new Create();
+            NewContact user = new NewContact();
             while (true)
             {
                 Console.WriteLine("Please enter a command: ");
@@ -21,16 +21,20 @@ namespace AddressBookSystem
 
                 if (command == "add")
                 {
-                    Create.AddPerson();
+                    NewContact.AddPerson();
                 }
                 if (command == "view")
                 {
-                    Create.listPerson();
+                    NewContact.listPerson();
+                }
+                if (command == "UniqueBookName")
+                {
+                    user.NewUser();
                 }
 
                 if (command == "ViewDictionary")
                 {
-                    person.Display();
+                    user.Display();
                 }
             }
         }
